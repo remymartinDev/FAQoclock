@@ -22,6 +22,7 @@
     - utilisateur 1 : user1 / user1
     - utilisateur 2 : user2 / user2
     - utilisateur 3 : user3 / user3
+    - utilisateur 4 : user4 / user4
 
 ### **Ce que j'ai fait**
 
