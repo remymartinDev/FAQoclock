@@ -1,5 +1,12 @@
+-------
+-------
+-------
+-------
 # pour le correcteur : [fichier ReadMe](documents/READMEcorrecteur.md)
-
+-------
+-------
+-------
+-------
 # FAQ-O-Clock
 
 ## Objectif
