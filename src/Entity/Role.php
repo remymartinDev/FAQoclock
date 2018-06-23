@@ -21,6 +21,18 @@ class Role
      */
     private $rolename;
 
+    /**
+     * Intitulé du rôle
+     *
+     * @ORM\Column(type="string", length=255)
+     */
+    private $label;
+
+    public function __toString()
+    {
+        return $this->getLabel();
+    }
+
     public function getId()
     {
         return $this->id;
@@ -34,6 +46,17 @@ class Role
     public function setRolename(string $rolename): self
     {
         $this->rolename = $rolename;
+
+        return $this;
+    }
+    public function getLabel(): ?string
+    {
+        return $this->label;
+    }
+
+    public function setLabel(string $label): self
+    {
+        $this->label = $label;
 
         return $this;
     }

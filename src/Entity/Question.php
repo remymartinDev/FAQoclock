@@ -55,6 +55,8 @@ class Question
         $this->tag = new ArrayCollection();
     }
 
+    
+
     public function getId()
     {
         return $this->id;

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block main %}
+
+          <div class="showQuestion">
+              <p class="showQtitle">{{ question.title }}</p>
+              <p class="showQuser">posée par {{ question.user.username}}</p>
+              <p class="showQbody"> {{ question.body}}</p>
+
+          </div>
+
+
+
+      {% for answer in answers %}
+          <div class="showQuestion">
+              <p class="showAbody"> {{ answer.body}}</p>
+              <p class="showAuser">par {{ answer.user.username}}</p>
+          </div>
+      {% endfor %}
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <p>FORMULAIRE DE REPONSE</p>
+        {% else %}
+        <p>Pour proposer une réponse , vous devez vous <a href="{{ path('login') }}">connecter</a> </p>
+        {% endif %}
+
+{% endblock %}

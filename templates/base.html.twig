@@ -2,11 +2,78 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+        <header>
+            <div class="navigation container-fluid">
+              <div class="row">
+                <div class="col-3">
+                <h1><a class="nav-link" href="{{ path('home') }}">FAQ O'Clock</a></h1>
+                </div>
+
+                <div class="col-9">
+                <ul class="nav justify-content-end">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Visit_Connexion</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Visit_Inscription</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Visit_Tags</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">User_Profil</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Admin_Panel</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">User_Déconnexion</a>
+                  </li>
+
+                </ul>
+                </div>
+              </div>
+              <div class="row">
+                  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                  <p>Connecté ! en tant que {{ app.user.username }}</p>
+                  {% else %}
+                  {{include('login/_login.html.twig')}}
+                  {% endif %}
+            </div>
+            </div>
+
+
+        </header>
+
+        <main>
+
+            {% block main %}
+                  <div class="row">
+                      {% for question in questions %}
+                          <div class="col-6">
+                              <a href="{{ path('question_show', {'id': question.id}) }}">
+                                  {{ question.title }}
+                                </a>
+                                  <p>par {{ question.user.username }}</p>
+
+                          </div>
+                      {% endfor %}
+                  </div>
+            {% endblock %}
+
+            {% block aside %}{% endblock %}
+
+        </main>
+
+        <footer>
+          {% block footer %}{% endblock %}
+        </footer>
     </body>
 </html>
