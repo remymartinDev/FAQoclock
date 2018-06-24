@@ -1,0 +1,4 @@
+{{ form_start(answerForm, {'action': path('backendUser_answer', {'id': question.id})}) }}
+    {{ form_widget(answerForm) }}
+    <button class="btn">{{ button_label|default('Répondre') }}</button>
+{{ form_end(answerForm) }}

@@ -1,27 +1,40 @@
 {% extends 'base.html.twig' %}
 
-
-
 {% block main %}
 
           <div class="showQuestion">
-              <p class="showQtitle">{{ question.title }}</p>
+            <div class="showQcontent">
+              <div class="showQtitle">{{ question.title }}</div>
+              <div class="showQtags">
+              {% for tag in tags %}
+                  <span class="showQtag">{{ tag.tagname }}</span>
+              {% endfor %}
+            </div>
+            </div>
+            <p class="showQbody"> {{ question.body}}</p>
               <p class="showQuser">posée par {{ question.user.username}}</p>
-              <p class="showQbody"> {{ question.body}}</p>
-
           </div>
 
-
-
       {% for answer in answers %}
-          <div class="showQuestion">
-              <p class="showAbody"> {{ answer.body}}</p>
-              <p class="showAuser">par {{ answer.user.username}}</p>
+          <div class="showAnswer {% if answer.validated == true %}validated{% endif %}">
+            <p class="showAbody"> {{ answer.body}}</p>
+              <div class="showAflex">
+                <p class="showAuser">par {{ answer.user.username}}</p>
+                <span class="valid">
+                  {% if is_granted('IS_AUTHENTICATED_FULLY') and app.user.id == question.user.id %}
+                      {% if answer.validated == false %}
+                      {{ include ('backendUser/answer/_validate.html.twig') }}
+                      {% else %}
+                      {{ include ('backendUser/answer/_invalidate.html.twig') }}
+                      {% endif %}
+                  {% endif %}
+                </span>
+              </div>
           </div>
       {% endfor %}
 
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <p>FORMULAIRE DE REPONSE</p>
+          {{ include('backendUser/answer/_answer.html.twig') }}
         {% else %}
         <p>Pour proposer une réponse , vous devez vous <a href="{{ path('login') }}">connecter</a> </p>
         {% endif %}

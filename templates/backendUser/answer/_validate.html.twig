@@ -1,0 +1,4 @@
+{{ form_start(validateForm, {'action': path('backendUser_answer_validate', {'id': answer.id})}) }}
+    {{ form_widget(validateForm) }}
+    <button class="btn">{{ button_label|default('Valider') }}</button>
+{{ form_end(validateForm) }}

@@ -24,7 +24,7 @@ class Tag
     private $tagname;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Question", mappedBy="tag")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Question", mappedBy="tags")
      */
     private $questions;
 
@@ -32,6 +32,11 @@ class Tag
     {
         $this->questions = new ArrayCollection();
     }
+
+      public function __toString()
+      {
+          return $this->getTagname();
+      }
 
     public function getId()
     {

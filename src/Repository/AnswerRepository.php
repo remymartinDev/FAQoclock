@@ -19,23 +19,18 @@ class AnswerRepository extends ServiceEntityRepository
         parent::__construct($registry, Answer::class);
     }
 
-  
-//    /**
-//     * @return Answer[] Returns an array of Answer objects
-//     */
-    /*
-    public function findByExampleField($value)
+
+    /**
+     * @return Answer[] Returns an array of Answer objects/
+    */
+
+    public function findAllByOrder($value)
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
+            ->orderBy('a.validated', 'DESC')
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Answer

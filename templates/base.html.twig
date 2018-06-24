@@ -10,65 +10,75 @@
     <body>
 
         <header>
-            <div class="navigation container-fluid">
-              <div class="row">
-                <div class="col-3">
-                <h1><a class="nav-link" href="{{ path('home') }}">FAQ O'Clock</a></h1>
-                </div>
+            <div class="container-fluid navigation">
+                <div class="row">
 
-                <div class="col-9">
-                <ul class="nav justify-content-end">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Visit_Connexion</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Visit_Inscription</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Visit_Tags</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">User_Profil</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Admin_Panel</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">User_Déconnexion</a>
-                  </li>
+                  <div class="col-3">
+                  <h1>
+                    <a class="nav-link" href="{{ path('home') }}">FAQ O'clock</a>
+                  </h1>
+                  </div>
 
-                </ul>
-                </div>
+                  <div class="col-9">
+                      <ul class="nav justify-content-end">
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                              <li class="nav-item">
+                                <a class="nav-link menu" href="{{ path('backendUser_profile', {'id' : app.user.id}) }}">Profil</a>
+                              </li>
+                              {% if is_granted('ROLE_ADMIN') %}
+                              <li class="nav-item">
+                                <a class="nav-link menu" href="#">Panel</a>
+                              </li>
+                              {% endif %}
+                              <li class="nav-item">
+                                <a class="nav-link menu" href="{{ path('logout') }}">Déconnexion</a>
+                              </li>
+                          {% else %}
+                              <li class="nav-item">
+                                <a class="nav-link menu" href="{{ path('login') }}">Connexion</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link menu" href="{{ path('signup') }}">Inscription</a>
+                              </li>
+                          {% endif %}
+                      </ul>
+                  </div>
+
               </div>
-              <div class="row">
-                  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                  <p>Connecté ! en tant que {{ app.user.username }}</p>
-                  {% else %}
-                  {{include('login/_login.html.twig')}}
-                  {% endif %}
             </div>
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <div class="bienvenue">
+              <p class="">Bienvenue {{ app.user.username }}</p>
             </div>
-
-
-        </header>
+            {% endif %}
+          </header>
 
         <main>
 
             {% block main %}
-                  <div class="row">
-                      {% for question in questions %}
-                          <div class="col-6">
-                              <a href="{{ path('question_show', {'id': question.id}) }}">
-                                  {{ question.title }}
-                                </a>
-                                  <p>par {{ question.user.username }}</p>
 
-                          </div>
-                      {% endfor %}
-                  </div>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <div class="askQuestion">
+              <a href="{{ path('backendUser_create') }}">Poser une question</a>
+            </div>
+            {% endif %}
+
+                <div class="questions row">
+                    {% for question in questions %}
+                        <div class="questionHome col-3">
+                            <a href="{{ path('question_show', {'id': question.id}) }}">
+                                {{ question.title }}
+                            </a>
+                            <p>par {{ question.user.username }}</p>
+
+                        </div>
+                    {% endfor %}
+                </div>
+
             {% endblock %}
 
             {% block aside %}{% endblock %}
+
 
         </main>
 

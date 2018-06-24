@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block main %}
+<a href="{{ path ('backendUser_profile_edit', {'id' : user.id}) }}">MODIFIER MON PROFIL</a>
+        <div class="showUser">
+            <p class="showU">Nom d'utilisateur : <span class="userProf">{{user.username}}</span></p>
+            <p class="showU">E-Mail : <span class="userProf">{{user.email}}</span></p>
+        </div>
+
+        <p>Mes Questions</p>
+        {% for question in questions %}
+            <div class="showQuestion">
+              <a class="showQtitle" href="{{ path('question_show', {'id': question.id}) }}">{{(question.title)}}</a>
+                <div class="showQbody">{{(question.body)}}</div>
+            </div>
+            {% endfor %}
+
+        <p>Mes Réponses</p>
+          {% for answer in answers %}
+          <div class="showAnswer">
+            <div class="validatedAnswer">{% if answer.validated == true %}Cette réponse a été validée par l'utilisateur à l'origine de la question{% endif %}</div>
+            Ma réponse :<div class="showUaBody">{{(answer.body)}}</div>
+            à la question : <a href="{{ path('question_show', {'id': answer.question.id}) }}">{{(answer.question.body)}}</a>
+          </div>
+          {% endfor %}
+{% endblock %}

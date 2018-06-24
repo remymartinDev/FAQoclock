@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Question;
 use App\Entity\Answer;
+use App\Entity\User;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -21,19 +22,19 @@ class QuestionRepository extends ServiceEntityRepository
         parent::__construct($registry, Question::class);
     }
 
-    
-
-
-
-    /*
-    public function findOneBySomeField($value): ?Question
-    {
-        return $this->createQueryBuilder('q')
-            ->andWhere('q.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
+    /**
+    * @param User $user
+    * @return Question[] Returns an array of Answer objects
     */
+
+    public function findAllByUser($user)
+    {
+        $query = $this->createQueryBuilder('q')
+            ->where('q.user = :user')
+            ->setParameter('user', $user)
+        ;
+
+        return $query->getQuery()->getArrayResult();;
+    }
+
 }
