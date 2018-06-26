@@ -56,14 +56,18 @@ J'ai quand même le sentiment que je dois retravailler les notions de la derniè
     - affiche et propose un lien vers les questions ET les réponses du user
 - **Bouton _Valider_** :
     - il fonctionne (valider/invalider) et insère en BDD
-      - un bug dû à **_include_** dans la boucle **_for_** fait que le chemin en POST ne fonctionne que dans la 1ere itération de la boucle. Les autres itérations envoient en GET vers un bouton, et cliquer sur ce bouton termine l'action. Je n'ai pas trouvé comment remédier à ce bug en SYMFONY
+      - un bug dû à **_include_** dans la boucle **_for_** fait que le chemin en POST ne fonctionne que dans la 1ere itération de la boucle. Les autres itérations envoient en GET vers une autre page où figure seulement un bouton (la page du "formulaire lié en include"... Néanmoins, cliquer sur ce bouton termine l'action, et envoie correctement en BDD. Je n'ai pas trouvé comment remédier à ce bug.
 
 - **Bouton _Bloquer_** :
     - il fonctionne (block/unblock) et insère en BDD
-      - même soucis que pour le Valider au-dessus
-      - les questions/réponses bloquées n'apparaissent pas pour les visiteurs et simples users. le modérateur les voit, le bouton block devient rouge.
+    - les questions/réponses bloquées n'apparaissent pas pour les visiteurs et simples users. le modérateur les voit, le bouton block devient rouge.
+      - même soucis que pour le bouton Valider au-dessus : le bouton de la premiere itération de la boucle fonctionne en direct, les autres envoie vers la page du formulaire de l'include.
+      
 - **_Sécurité_**
     - l'admin a les droits de modérateur et user , le modérateur a les droit user.
+ 
+- **_Intégration_**
+    - même si cela n'était pas obligatoire, j'ai tenu à faire une intégration de l'appli, notamment pour générer des affichages dynamiques avec des balises {% if...%} et {% is_granted... %}: dissocié visuellement les différents éléments d'une page, changement des boutons de la navigation selon que l'utilisateur est logué ou pas et apparition d'un item avec le nom de l'utilisateur logué, des changements de couleurs en fonction des actions, réponses validées : fond vert, en haut de la boucle ; questions-reponses bloquées: en display:none pour les user, changement de couleur des boutons block pour les modérateurs)
 
 
 ### **Ce que je n'ai pas fait**
