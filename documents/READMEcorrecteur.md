@@ -32,11 +32,11 @@ J'ai quand même le sentiment que je dois retravailler les notions de la derniè
     - utilisateur 5 : user5 / user5
 
 
-### **Ce que j'ai fait**
+## **Ce que j'ai fait**
 ---
 - **Ce qui était demandé** :
     - ce que j'ai réussi à faire
-      - ce que je n'ai pas réussi à faire
+      - ce que je n'ai pas fait
 ---
 - **Navigation** :
     - le user peut se connecter, se déconnecter, s'inscrire;  
@@ -68,8 +68,8 @@ J'ai quand même le sentiment que je dois retravailler les notions de la derniè
 
 ### **Ce que je n'ai pas fait**
 
-- gestion des "tags" (créer)
+- gestion des "tags" par modérateur/admin (créer/supprimer)
 - une page de liste de questions par tags
-- les tags dans le aside ne sont pas cliquables pour envoyer vers la liste "par tags"  
+- les tags dans le aside ne sont pas cliquables (pour envoyer vers la liste "questions par tags") 
 
 - les BONUS
