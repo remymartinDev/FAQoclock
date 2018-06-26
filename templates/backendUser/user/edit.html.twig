@@ -1,9 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    <h1>Modifier mon profil</h1>
+<main class="main content">
+  <div class="insider">
+
+    <h2>Modifier mon profil</h2>
 
     {{ include('backendUser/user/_edit.html.twig', {'button_label': 'Modifier'}) }}
 
     <a href="{{ path('backendUser_profile', {'id' : user.id}) }}">retour au profil</a>
+  </div>
+  </main>
 {% endblock %}

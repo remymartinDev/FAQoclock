@@ -53,34 +53,48 @@
             {% endif %}
           </header>
 
+
+        {% block main %}
         <main>
 
-            {% block main %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-2"></div>
+                <section class="main col-7">
 
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <div class="askQuestion">
-              <a href="{{ path('backendUser_create') }}">Poser une question</a>
-            </div>
-            {% endif %}
+                  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                  <div class="askQuestion">
+                    <a href="{{ path('backendUser_create') }}">Poser une question</a>
+                  </div>
+                  {% endif %}
 
-                <div class="questions row">
+                  <div class="questions row">
                     {% for question in questions %}
-                        <div class="questionHome col-3">
-                            <a href="{{ path('question_show', {'id': question.id}) }}">
-                                {{ question.title }}
-                            </a>
-                            <p>par {{ question.user.username }}</p>
-
-                        </div>
+                      <a href="{{ path('question_show', {'id': question.id}) }}" class="questionHome col-3">
+                        {{ question.title }}
+                        <p>par {{ question.user.username }}</p>
+                      </a>
                     {% endfor %}
-                </div>
+                  </div>
 
-            {% endblock %}
+                </section>
+                <div class="col-1"></div>
+                <aside class="aside col-2">
+                  <div class="homeTags">TAGS</div>
+                  <div class="homeTagLabels">
+                  {% for tag in tags %}
+                    <span>
+                    <a href="#" class="showAsideTag">{{ tag.tagname }}</a>
+                    </span>
+                  {% endfor %}
+                  </div>
+                </aside>
 
-            {% block aside %}{% endblock %}
+            </div>
+        </div>
+      </main>
+        {% endblock %}
 
-
-        </main>
 
         <footer>
           {% block footer %}{% endblock %}

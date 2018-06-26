@@ -7,8 +7,10 @@ use App\Entity\Question;
 use App\Form\QuestionType;
 use App\Form\AnswerType;
 use App\Form\ValidateType;
+use App\Repository\AnswerRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\UserRepository;
+use App\Repository\TagRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,37 +24,44 @@ class QuestionController extends Controller
     /**
      * @Route("/", name="home")
      */
-    public function home(QuestionRepository $questionRepo,Request $request, AuthenticationUtils $authenticationUtils)
+    public function home(QuestionRepository $questionRepo,Request $request, AuthenticationUtils $authenticationUtils, TagRepository $tagRepo)
     {
         $questions = $questionRepo->findAll();
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
+        $tags = $tagRepo->findAll();
 
         return $this->render('base.html.twig', [
           'title' => 'FAQ O\'clock',
           'questions' => $questions,
+          'tags' => $tags,
         ]);
     }
 
     /**
      * @Route("/question/show/{id}", name="question_show", methods="GET|POST")
      */
-    public function show(Request $request, Question $question)
+    public function show(Request $request, Question $question, AnswerRepository $ansRepo)
     {
         //parceque le form "_answer" est include dans cette page
         $answerForm = $this->createForm(AnswerType::class);
         $validateForm = $this->createForm(ValidateType::class);
+        $blockForm = $this->createForm(ValidateType::class);
 
-        $answers = $question->getAnswers();
         $tags = $question->getTags();
+
+        //custom pour que les reponses validées apparaissent en premier
+        $answers = $question->getAnswers();
+        $answersByVal = $ansRepo->findAllByOrder($question);
 
         return $this->render('question/show.html.twig', [
             'title' => 'Question',
             'question' => $question,
-            'answers' => $answers,
             'tags' => $tags,
             'answerForm' => $answerForm->createView(),
             'validateForm' => $validateForm->createView(),
+            'answersByVal' => $answersByVal,
+            'blockForm' => $blockForm
         ]);
     }
 

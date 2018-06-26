@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Answer;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -23,24 +24,19 @@ class AnswerRepository extends ServiceEntityRepository
     /**
      * @return Answer[] Returns an array of Answer objects/
     */
+      public function findAllByOrder($question): array
+      {
+          $entityManager = $this->getEntityManager();
 
-    public function findAllByOrder($value)
-    {
-        return $this->createQueryBuilder('a')
-            ->orderBy('a.validated', 'DESC')
-        ;
-    }
+          $query = $entityManager->createQuery(
+              'SELECT a
+              FROM App\Entity\Answer a
+              JOIN App\Entity\Question q
+              WHERE a.question = :question
+              ORDER BY a.validated DESC'
 
+          )->setParameter('question', $question );
+          return $query->execute();
 
-    /*
-    public function findOneBySomeField($value): ?Answer
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
+      }
 }

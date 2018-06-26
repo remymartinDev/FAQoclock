@@ -34,7 +34,7 @@ class QuestionRepository extends ServiceEntityRepository
             ->setParameter('user', $user)
         ;
 
-        return $query->getQuery()->getArrayResult();;
+        return $query->getQuery()->getArrayResult();
     }
 
 }

@@ -1,0 +1,4 @@
+{{ form_start(blockForm, {'action': path('backendModo_answer_block', {'id': answer.id})}) }}
+    {{ form_widget(blockForm) }}
+    <button class="btn">{{ button_label|default('BLOCK') }}</button>
+{{ form_end(blockForm) }}

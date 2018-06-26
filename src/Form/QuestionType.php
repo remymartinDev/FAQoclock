@@ -12,8 +12,12 @@ class QuestionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('body')
+            ->add('title', null, [
+                'label' => 'Titre de la question',
+            ])
+            ->add('body', null, [
+                'label' => 'Votre question',
+            ])
             //->add('blocked')
             //->add('user')
             ->add('tags')

@@ -47,7 +47,7 @@ class AnswerController extends Controller
       ]);
   }
       /**
-       * @Route("answer/validate/{id}", name="backendUser_answer_validate", methods="POST")
+       * @Route("backendUser/answer/validate/{id}", name="backendUser_answer_validate", methods="POST")
        */
       public function validate(Request $request, Answer $answer): Response
       {
@@ -96,4 +96,30 @@ class AnswerController extends Controller
 
       ]);
   }
+
+  /**
+   * @Route("backenModo/answer/block/{id}", name="backendModo_answer_block", methods="POST")
+   */
+  public function block(Request $request, Answer $answer): Response
+  {
+
+    $form = $this->createForm(ValidateType::class, $answer);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+
+        $answer->setBlocked(1);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('question_show',[
+         'id' => $answer->getQuestion()->getId(),
+        ]);
+    }
+
+    return $this->render('backendModo/answer/_block.html.twig', [
+      'blockForm' => $form->createView(),
+      'answer' => $answer
+
+    ]);
+}
 }

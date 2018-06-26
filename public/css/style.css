@@ -1,5 +1,5 @@
 body {
-  background-color: #cccccc;
+  background-image: url('/images/backgroundPattern.jpg');
 }
 
 .navigation {
@@ -14,6 +14,21 @@ h1 a{
   font-weight: bold;
 }
 
+h2 {
+  font-size: 1.5rem;
+  text-shadow: 2px 2px white;
+}
+
+.content {
+  border: 3px solid #693b3b;
+  background-color: #cccccc;
+  border-radius: 15px;
+}
+
+.insider {
+  margin: 2rem;
+}
+
 .nav-link {
   color: white;
   margin-bottom: -8px;
@@ -26,7 +41,7 @@ h1 a{
   top: 4rem;
   right: 0px;
   background-color: #693b3b;
-  width: 12rem;
+  width: 17%;
   border-radius: 0px 0px 10px 10px ;
 }
 
@@ -55,17 +70,26 @@ header li  {
   text-decoration: none;
   background-color: #693b3b;
   font-size: 1.3rem;
-  padding: 2rem 12rem;
+  padding: 4% 18%;
   border-radius: 10px;
   border: 2px solid white;
 }
 
-main {
-  width: 75%;
-  margin: auto;
-  margin-top: 10rem;;
+.askQuestion a:hover{
+  color: #693b3b;
+  text-decoration: none;
+  background-color: white;
+  border: 2px solid #693b3b;
 }
 
+main {
+  margin: auto;
+  margin-top: 10rem;
+}
+
+.main {
+  width: 75%;
+}
 .questions {
   margin-top: 4rem;
   display: flex;
@@ -74,20 +98,29 @@ main {
 
 .questionHome {
   border: 3px solid #693b3b;
-  background-color: #dfdfdf;
+  background-color: #cccccc;
   border-radius: 15px;
   margin: 1rem;
   text-align: center;
 }
 
-.questionHome a {
+.questionHome:hover {
+  border: 3px solid white;
+  background-color: #693b3b;
+}
+
+.questions a:hover {
+  color: white;
+}
+
+.questions a {
   color: black;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
 }
 
-.questionHome p {
+.questions p {
   color: black;
   font-style: italic;
   font-size: 0.8rem;
@@ -98,7 +131,7 @@ main {
 
 .loginForm {
   border: 3px solid #693b3b;
-  background-color: #dfdfdf;
+  background-color: #f8efef;
   border-radius: 15px;
   margin: auto;
   text-align: right;
@@ -118,40 +151,54 @@ main {
 
 .showQuestion {
   border: 3px solid #693b3b;
-  background-color: #dfdfdf;
+  background-color:  #f8efef;
   border-radius: 15px;
-  margin: 1rem;
+  margin: 1rem 1rem 3rem 1rem;
 }
 .showQcontent {
   display: flex;
   justify-content: space-between;
 }
 
-.showQtitle {
+..profCat a {
   color: black;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
+  margin-left: 10px;
 }
 
 .showQtags {
   text-align: right;
-  margin-right: 1rem;
+  margin-right: 0.15rem;
+  margin-top: 0.4rem;
 }
 
 .showQtag {
-  color: white;
-  background-color: #b0b0c6;
-  border: 1px solid white;
-  border-radius: 5px;
+  color: #693b3b;
+  background-color: white;
+  border: 3px solid #693b3b;
+  border-radius: 11px;
+  padding: 4px;
+  font-weight: bold;
 }
 
 .showQuser {
   color: black;
   font-style: italic;
   font-size: 0.8rem;
-  margin-bottom: 0px;
+  margin-bottom: 1px;
   margin-top: 5px;
+  margin-left: 10px;
+}
+
+.showQtitle {
+  color: black;
+  font-style: italic;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  margin-top: 1px;
+  margin-left: 10px;
 }
 
 .showQbody {
@@ -164,10 +211,14 @@ main {
 }
 
 .showAnswer {
-  border: 2px solid black;
+  border: 3px solid #693b3b;
   border-radius: 3px;
-  margin: 0.3rem;
-  background-color: #ffffd585;
+  margin: 0.3rem 0rem 0.5rem 0rem;
+  background-color: #ffffd5;
+}
+
+.showAnswer span{
+  font-weight: bold;
 }
 
 .showAuser {
@@ -177,40 +228,152 @@ main {
   margin-top: 5px;
 }
 
+.showAuser1 {
+  font-style: italic;
+  font-size: 0.8rem;
+  margin-bottom: 3px;
+  margin-top: 5px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.showAbody {
+  margin: 15px 15px 0px 15px;
+}
+
 .showAflex {
   display: flex;
   justify-content: space-between;
 }
 
+.showAflex1 {
+  text-align: right;
+}
+
 .showQvoir {
   padding: 2px;
   border: 3px solid #693b3b;
-  background-color: #dfdfdf;
+  background-color: #f8efef;
   border-radius: 15px;
   text-decoration: none;
   color: #693b3b;
 }
 
+.showUaBody {
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
 .valid button {
   padding: 2px;
-  background-color: #b6dcb9;
+  background-color: #d5f2d7;
 }
 
 .validated {
-  background-color: #b6dcb9;
+  background-color: #d5f2d7;
 }
 
 .validatedAnswer {
-  background-color: #b6dcb9;
+  background-color: #d5f2d7;
   text-align: right;
 }
 
 .userProf {
   font-style: italic;
   font-size: 1.1rem;
+  color:white
+}
+
+.blocButton {
+  background-color: #c14141;
+  color: white;
+
 }
 
 .showU {
   font-weight: bold;
   font-size: 1.1rem;
+}
+
+.showU {
+  margin-top: 2rem;
+}
+
+.profCat {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 1.5rem;
+  color: #693b3b;
+  margin-top: 3.5rem;
+}
+
+.editProf{
+  color: white;
+  text-decoration: none;
+  background-color: #693b3b;
+  font-size: 0.8rem;
+  padding: 0.5rem 0.8em;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+.editProf:hover{
+  color: #693b3b;
+  text-decoration: none;
+  background-color: white;
+  border: 2px solid #693b3b;
+}
+
+.aside {
+  border: 3px solid #693b3b;
+  background-color: #cccccc;
+  border-radius: 10px 10px 0px 0px ;
+  text-align: right;
+  width: 25rem;
+  padding: 0rem 0rem 27rem 0rem;
+  align-content: flex-start;
+  position: fixed;
+  right: 0px;
+  top: 9rem;
+}
+
+.homeTags {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  background-color: #693b3b;
+  margin-bottom: 2rem;
+  padding-bottom: 15px;
+  vertical-align: middle;
+  padding-top: 15px;
+}
+
+.homeTagLabels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.showAsideTag {
+  color: #693b3b;
+  background-color: white;
+  border: 3px solid #693b3b;
+  border-radius: 11px;
+  padding: 4px;
+  margin: 1px;
+  font-weight: bold;
+}
+
+.aside span{
+  margin: 0.5rem 0.01rem;
+}
+
+.showAsideTag:hover {
+  color: white;
+  background-color: #693b3b;
+  border: 3px solid white;
+  text-decoration: none;
+}
+
+.blocked {
+  display: none;
 }

@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
+    <main class="main">
 
           <div class="showQuestion">
             <div class="showQcontent">
@@ -13,13 +14,20 @@
             </div>
             <p class="showQbody"> {{ question.body}}</p>
               <p class="showQuser">posée par {{ question.user.username}}</p>
+            {% if is_granted('ROLE_MODO')%}
+                <span class="blocButton">
+                    BLOCK
+                </span>
+            {% endif %}
           </div>
-
-      {% for answer in answers %}
-          <div class="showAnswer {% if answer.validated == true %}validated{% endif %}">
+      {% for answer in answersByVal %}
+          <div class="showAnswer
+        {% if answer.validated == true %}validated{% endif %}
+        {% if answer.blocked == true %}blocked{% endif %}
+        ">
             <p class="showAbody"> {{ answer.body}}</p>
-              <div class="showAflex">
-                <p class="showAuser">par {{ answer.user.username}}</p>
+              <div class="showAflex1">
+                <p class="showAuser1">par {{ answer.user.username}}</p>
                 <span class="valid">
                   {% if is_granted('IS_AUTHENTICATED_FULLY') and app.user.id == question.user.id %}
                       {% if answer.validated == false %}
@@ -28,15 +36,26 @@
                       {{ include ('backendUser/answer/_invalidate.html.twig') }}
                       {% endif %}
                   {% endif %}
+                  {% if is_granted('ROLE_MODO')%}
+                  <span class="blocButton">
+                      {{ include ('backendModo/answer/_block.html.twig') }}
+                  </span>
+                  {% endif %}
                 </span>
-              </div>
+          </div>
+
           </div>
       {% endfor %}
+
+        <div class="content">
+          <div class="insider">
 
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
           {{ include('backendUser/answer/_answer.html.twig') }}
         {% else %}
         <p>Pour proposer une réponse , vous devez vous <a href="{{ path('login') }}">connecter</a> </p>
         {% endif %}
-
+      </div>
+    </div>
+    </main>
 {% endblock %}
