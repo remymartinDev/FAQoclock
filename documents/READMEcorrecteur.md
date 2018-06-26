@@ -3,8 +3,8 @@
 ## Informations utiles
 
 #### Résumé :  
-j'ai perdu beaucoup de temps à reprendre et me réapproprier pas mal de notions. Un exercice vraiment bénéfique, car ça m'a permis de revoir toute la spé avec une vue d'ensemble, ce qui m'a permis de comprendre certaines choses que je n'avais pas intégrées.  
-J'ai quand même le sentiment que je dois retravailler les notions de la dernière semaine, mais ce que j'ai fait dans cette éval est très très supérieur à ce que je pensais être capable de faire (comme à chaque éval ...)
+_j'ai perdu beaucoup de temps à reprendre et me réapproprier pas mal de notions. Un exercice vraiment bénéfique, car ça m'a permis de revoir toute la spé avec une vue d'ensemble, ce qui m'a permis de comprendre certaines choses que je n'avais pas intégrées._ 
+_J'ai quand même le sentiment que je dois retravailler les notions de la dernière semaine, mais ce que j'ai fait dans cette éval est très très supérieur à ce que je pensais être capable de faire (comme à chaque éval ...)_
 
 
 
