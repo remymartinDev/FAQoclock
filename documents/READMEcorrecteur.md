@@ -2,6 +2,10 @@
 
 ## Informations utiles
 
+#### Résumé :  
+j'ai perdu beaucoup de temps à reprendre et me réapproprier pas mal de notions. Un exercice vraiment bénéfique, car ça m'a permis de revoir toute la spé avec une vue d'ensemble, ce qui m'a permis de comprendre certaines choses que je n'avais pas intégrées.  
+J'ai quand même le sentiment que je dois retravailler les notions de la dernière semaine, mais ce que j'ai fait dans cette éval est très très supérieur à ce que je pensais être capable de faire (comme à chaque éval ...)
+
 
 
 ### **Travail de préparation**
@@ -40,6 +44,7 @@
     - lorsque le user est connecté : un bouton "poser une question" et une div avec "bienvenu  NomDuUser" apparaissent.
 - **Accueil** :
     - affiche la liste des questions
+    - un aside regroupe les tags
 - **page _/question/show/id_** :
     - affiche la liste des réponses associées
     - consultable pour le visiteur
@@ -53,16 +58,18 @@
     - il fonctionne (valider/invalider) et insère en BDD
       - un bug dû à **_include_** dans la boucle **_for_** fait que le chemin en POST ne fonctionne que dans la 1ere itération de la boucle. Les autres itérations envoient en GET vers un bouton, et cliquer sur ce bouton termine l'action. Je n'ai pas trouvé comment remédier à ce bug en SYMFONY
 
--
--
--
--
--
--
--
+- **Bouton _Bloquer_** :
+    - il fonctionne (block/unblock) et insère en BDD
+      - même soucis que pour le Valider au-dessus
+      - les questions/réponses bloquées n'apparaissent pas pour les visiteurs et simples users. le modérateur les voit, le bouton block devient rouge.
+- **_Sécurité_**
+    - l'admin a les droits de modérateur et user , le modérateur a les droit user.
 
 
 ### **Ce que je n'ai pas fait**
 
--
--
+- gestion des "tags" (créer)
+- une page de liste de questions par tags
+- les tags dans le aside ne sont pas cliquables pour envoyer vers la liste "par tags"  
+
+- les BONUS

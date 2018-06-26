@@ -7,6 +7,7 @@ use App\Entity\Question;
 use App\Form\QuestionType;
 use App\Form\AnswerType;
 use App\Form\ValidateType;
+use App\Form\BlockType;
 use App\Repository\AnswerRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\UserRepository;
@@ -47,7 +48,7 @@ class QuestionController extends Controller
         $answerForm = $this->createForm(AnswerType::class);
         $validateForm = $this->createForm(ValidateType::class);
         $blockForm = $this->createForm(ValidateType::class);
-
+        $blockQForm = $this->createForm(BlockType::class);
         $tags = $question->getTags();
 
         //custom pour que les reponses validées apparaissent en premier
@@ -61,7 +62,8 @@ class QuestionController extends Controller
             'answerForm' => $answerForm->createView(),
             'validateForm' => $validateForm->createView(),
             'answersByVal' => $answersByVal,
-            'blockForm' => $blockForm
+            'blockForm' => $blockForm->createView(),
+            'blockQForm' => $blockQForm->createView(),
         ]);
     }
 

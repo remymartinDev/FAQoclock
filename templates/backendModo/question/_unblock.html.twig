@@ -1,0 +1,4 @@
+{{ form_start(blockQForm, {'action': path('backendModo_question_unblock', {'id': question.id})}) }}
+    {{ form_widget(blockQForm) }}
+    <button class="btn">{{ button_label|default('UNBLOCK') }}</button>
+{{ form_end(blockQForm) }}

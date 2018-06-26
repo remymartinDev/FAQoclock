@@ -377,3 +377,19 @@ main {
 .blocked {
   display: none;
 }
+
+.blockOn button{
+  background-color: red;
+  border: 2px solid #ff7e7e;
+  color: white;
+}
+
+.blockOff button{
+  background-color: green;
+    border: 2px solid #49ff49;
+    color: white;
+}
+
+.Qblock {
+  text-align: right;
+}

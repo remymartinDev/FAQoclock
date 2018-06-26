@@ -14,16 +14,20 @@
             </div>
             <p class="showQbody"> {{ question.body}}</p>
               <p class="showQuser">posée par {{ question.user.username}}</p>
-            {% if is_granted('ROLE_MODO')%}
-                <span class="blocButton">
-                    BLOCK
-                </span>
+          {% if is_granted('ROLE_MODO')%}
+          <span class="blocButton Qblock{% if question.blocked == true %} blockOn {% else %} blockOff {% endif %}">
+            {% if question.blocked == false %}
+              {{ include ('backendModo/question/_block.html.twig') }}
+            {% else %}
+              {{ include ('backendModo/question/_unblock.html.twig') }}
             {% endif %}
+          </span>
+          {% endif %}
           </div>
       {% for answer in answersByVal %}
           <div class="showAnswer
         {% if answer.validated == true %}validated{% endif %}
-        {% if answer.blocked == true %}blocked{% endif %}
+        {% if answer.blocked == true %}{% if is_granted('ROLE_MODO') == false %} blocked{% endif %}{% endif %}
         ">
             <p class="showAbody"> {{ answer.body}}</p>
               <div class="showAflex1">
@@ -37,8 +41,12 @@
                       {% endif %}
                   {% endif %}
                   {% if is_granted('ROLE_MODO')%}
-                  <span class="blocButton">
+                  <span class="blocButton {% if answer.blocked == true %} blockOn {% else %} blockOff {% endif %}">
+                    {% if answer.blocked == false %}
                       {{ include ('backendModo/answer/_block.html.twig') }}
+                    {% else %}
+                      {{ include ('backendModo/answer/_unblock.html.twig') }}
+                    {% endif %}
                   </span>
                   {% endif %}
                 </span>
