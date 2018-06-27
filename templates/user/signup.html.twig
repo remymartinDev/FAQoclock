@@ -3,8 +3,11 @@
 
 {% block main %}
 <main class="main">
-    <h2>{{title}}</h2>
-
-      {{ include('user/_signupform.html.twig') }}
-</main>    
+    <div class="signupForm">
+        <div class="insider">
+        <h2>{{title}}</h2>
+        {{ include('user/_signupform.html.twig') }}
+        </div>
+    </div>
+</main>
 {% endblock %}

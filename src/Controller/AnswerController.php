@@ -17,7 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class AnswerController extends Controller
 {
     /**
-     * @Route("answer/{id}", name="backendUser_answer", methods="POST")
+     * @Route("user/answer/{id}", name="backendUser_answer", methods="POST")
      */
     public function answer(Request $request,UserRepository $userRepo,QuestionRepository $questionRepo, Question $question): Response
     {

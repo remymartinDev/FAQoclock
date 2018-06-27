@@ -40,9 +40,9 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
     access_control:
-        - { path: ^/backend, roles: ROLE_ADMIN }
+        - { path: ^/backendAdmin, roles: ROLE_ADMIN }
         - { path: ^/backendModo, roles: ROLE_MODO }
-        - { path: ^/backendUser, roles: ROLE_USER }
+        - { path: ^/user, roles: ROLE_USER }
         # - { path: ^/profile, roles: ROLE_USER }
 
     role_hierarchy:

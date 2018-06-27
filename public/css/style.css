@@ -134,8 +134,19 @@ main {
   background-color: #f8efef;
   border-radius: 15px;
   margin: auto;
+  margin-top: 12rem;
   text-align: right;
-  width: 25rem;
+  width: 28rem;
+  padding: 1rem;
+}
+
+.signupForm {
+  border: 3px solid #693b3b;
+  background-color: #f8efef;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 15rem;
+  width: 40rem;
   padding: 1rem;
 }
 

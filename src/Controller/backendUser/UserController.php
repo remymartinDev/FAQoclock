@@ -20,7 +20,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class UserController extends Controller
 {
     /**
-     * @Route("/backendUser/{id}", name="backendUser_profile")
+     * @Route("/user/{id}", name="backendUser_profile")
      */
     public function profile(Request $request, User $user, QuestionRepository $questionRepo)
     {
@@ -36,7 +36,7 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/backendUser/{id}/edit", name="backendUser_profile_edit", methods="GET|POST")
+     * @Route("/user/{id}/edit", name="backendUser_profile_edit", methods="GET|POST")
      */
     public function edit(Request $request, User $user, UserPasswordEncoderInterface $encoder): Response
     {

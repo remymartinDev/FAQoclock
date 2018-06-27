@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use App\Entity\Role;
 
 /**
- * @ORM\Table(name="app_users")
+ * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
 class User implements UserInterface, \Serializable

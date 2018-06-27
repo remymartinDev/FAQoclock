@@ -3,12 +3,17 @@
 {% block main %}
 <main class="main content">
   <div class="insider">
+  {% if app.user == user %}
 
     <h2>Modifier mon profil</h2>
 
     {{ include('backendUser/user/_edit.html.twig', {'button_label': 'Modifier'}) }}
 
     <a href="{{ path('backendUser_profile', {'id' : user.id}) }}">retour au profil</a>
+
+  {% else %}
+      <hr><hr><hr><p class="showU">Je pense que vous vous êtes égaré ...</p><hr><hr><hr>
+  {% endif %}
   </div>
   </main>
 {% endblock %}

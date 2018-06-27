@@ -18,7 +18,7 @@ class AnswerController extends Controller
 {
 
       /**
-       * @Route("backendUser/answer/validate/{id}", name="backendUser_answer_validate", methods="POST")
+       * @Route("user/answer/validate/{id}", name="backendUser_answer_validate", methods="POST")
        */
       public function validate(Request $request, Answer $answer): Response
       {
@@ -43,7 +43,7 @@ class AnswerController extends Controller
         ]);
     }
     /**
-     * @Route("answer/invalidate/{id}", name="backendUser_answer_invalidate", methods="POST")
+     * @Route("user/answer/invalidate/{id}", name="backendUser_answer_invalidate", methods="POST")
      */
     public function invalidate(Request $request, Answer $answer): Response
     {

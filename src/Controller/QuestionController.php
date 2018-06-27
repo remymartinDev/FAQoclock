@@ -68,7 +68,7 @@ class QuestionController extends Controller
     }
 
     /**
-     * @Route("/create", name="backendUser_create", methods="GET|POST")
+     * @Route("/user/create", name="backendUser_create", methods="GET|POST")
      */
      public function create(Request $request, UserRepository $userRepo): Response
      {

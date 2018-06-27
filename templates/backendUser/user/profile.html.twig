@@ -3,8 +3,10 @@
 
 
 {% block main %}
+
 <main class="main content">
   <div class="insider">
+  {% if app.user == user %}
 
 <a class="editProf" href="{{ path ('backendUser_profile_edit', {'id' : user.id}) }}">MODIFIER MON PROFIL</a>
         <div class="showUser">
@@ -29,6 +31,9 @@
             <span>à la question : </span><a href="{{ path('question_show', {'id': answer.question.id}) }}">{{(answer.question.body)}}</a>
           </div>
           {% endfor %}
+  {% else %}
+      <hr><hr><hr><p class="showU">Je pense que vous vous êtes égaré ...</p><hr><hr><hr>
+  {% endif %}
         </div>
 </main>
 {% endblock %}
