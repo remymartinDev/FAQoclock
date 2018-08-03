@@ -50,10 +50,10 @@ class UserController extends Controller
             $encoded = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($encoded);
 
-            $role = $user->getRole;
-            if ($role !== null){
-            $user->setRole($roleRepo->find(1));
-            }
+            // $role = $user->getRole;
+            // if ($role !== null){
+            $user->setRole($roleRepo->findOneByRolename('ROLE_USER'));
+            // }
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);

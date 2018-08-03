@@ -168,8 +168,9 @@ class AppFixtures extends Fixture
         $answer302 = new Answer();
         $answer302->setValidated('0');
         $answer302->setBody('Philosophiquement ta question déclenche chez moi un Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ');
-        $answer302->setBlocked('0');31);
+        $answer302->setBlocked('0');
         $answer302->setUser($userUser1);
+        $answer302->setQuestion($question3);
         $answer303 = new Answer();
         $answer303->setValidated('1');
         $answer303->setBody('C’est Pierre de Coubertin, créateur des Jeux olympiques modernes, qui a eu l’idée en 1913 de symboliser les Jeux olympiques avec ces 5 anneaux entrelacés. Ils représentent les 5 continents unis par le sport, fraternels et dans la paix.');
