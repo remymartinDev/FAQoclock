@@ -10,10 +10,18 @@
 ## Setup
 - [x] Installer Symfony
 - [x] Configurer la BDD
-
-## Base
 - [x] Implémenter le MCD => BDD conforme au MCD
 - [x] Créer des fixtures pour l'appli => Vu
+
+## Base
+
+- [x] Intégrer le layout principal
+- [x] Afficher la liste des questions
+- [x] Afficher une page question
+- [x] Poser une question
+- [x] Proposer une réponse
+- [x] Accepter une réponse
+- [ ] Filtrer les question par tag
 
 ## Sécurité
 - [x] Configurer le module de sécurité (base)
@@ -49,3 +57,14 @@ Félicitations pour ce travail bien conçu en amont. On voit que tu t'es appliqu
 A terme l'inté CSS mériterait un petit lifting mais ça c'est bonus ;)
 
 Avec en plus ta participation sur Click'n'send, tu es sur la bonne voie !
+
+## Points forts
+- conception en amont effectuée (3 livrables fournis)
+- capable de convertir l'énoncé en une appli fonctionnelle
+- effort fait sur l'intégration (optionnel)
+- ajout de fixtures (optionnel)
+
+## Recommandations
+- changer de stratégie en cas de bugs récalcitrants (pour y revenir plus tard)
+- bien revérifier toute la création de l'appli from scratch avant de la livrer
+- persévérer pour gagner en efficacité, mais tu es déjà en bonne voie
